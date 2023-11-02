@@ -26,5 +26,15 @@ def ridge_regression(y, tx, lambda_):
     # ***************************************************
     # COPY YOUR CODE FROM EX03 HERE
     # ridge regression: TODO
+    
+    N, D = tx.shape
+    
+    a_penalty = lambda_ * 2 * N * np.identity(D)
+    a = tx.T.dot(tx) + a_penalty
+    b = tx.T.dot(y)
+    
+    return np.linalg.solve(a,b)
+    
+    
     # ***************************************************
     raise NotImplementedError

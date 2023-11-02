@@ -11,5 +11,12 @@ def build_poly(x, degree):
     # polynomial basis function: TODO
     # this function should return the matrix formed
     # by applying the polynomial basis to the input data
+    
+    arr = np.ones((len(x), 1))
+    for d in range(1, degree + 1):
+        arr = np.c_[arr, np.power(x, d)]
+    return arr
+        
+    
     # ***************************************************
     raise NotImplementedError
