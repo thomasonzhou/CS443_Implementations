@@ -41,9 +41,15 @@ def build_distance_matrix(data, mu):
         data: numpy array of shape = (N, d). original data.
         mu:   numpy array of shape = (k, d). Each row corresponds to a cluster center.
     Returns:
-        squared distances matrix,  numpy array of shape (N, k):
-            row number i column j corresponds to the squared distance of datapoint i with cluster center j.
+        numpy array of shape (N, k):
+            squared distances matrix,
+            the value row i column j corresponds to the squared distance of datapoint i with cluster center j.
     """
     ####################################
     ### ___ Enter your code here ___ ###
     ####################################
+    distance_matrix = []
+    for mean in mu:
+        dist = np.sum(np.square(data - mean), axis = 1)
+        distance_matrix.append(dist)
+    return np.array(distance_matrix).T
